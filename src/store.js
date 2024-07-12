@@ -1,4 +1,5 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import loggerMiddleware from "./loggerMiddleware";
 
 const initialValue = [];
 
@@ -13,4 +14,6 @@ const libraryReducer = (state = initialValue, action) => {
   }
 };
 
-export default createStore(libraryReducer);
+const store = createStore(libraryReducer, applyMiddleware(loggerMiddleware));
+
+export default store;
