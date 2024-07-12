@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addBook } from "./actions";
 
 const LibraryManagementForm = () => {
   const [bookTitle, setBookTitle] = useState("");
@@ -8,10 +9,7 @@ const LibraryManagementForm = () => {
   const dispatch = useDispatch();
 
   const handleOnClick = () => {
-    dispatch({
-      type: "ADD_BOOK",
-      payload: { title: bookTitle, author: bookAuthor, isbn: bookIsbn },
-    });
+    dispatch(addBook({ title: bookTitle, author: bookAuthor, isbn: bookIsbn }));
   };
 
   return (

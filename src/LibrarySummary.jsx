@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
+import { removeBook } from "./actions";
 
 const LibrarySummary = () => {
   const books = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const removeBtnHandle = (index) => {
-    dispatch({ type: "REMOVE_BOOK", payload: index });
+    dispatch(removeBook(index));
   };
 
   return (
